@@ -22,25 +22,27 @@ fileScanner::~fileScanner()
 
 void fileScanner::populateTree(searchTree* &popTree)
 {
-	FILE *insertFile;
+    FILE *insertFile;
 
-    char insWord[16];
+    char insWord[20];
 	insertFile = fopen("Ass2Dictionary.txt", "r");
 
     char c;
 
     do
     {
-        char strippedWord[16];
+        char strippedWord[20];
         c = fscanf(insertFile, "%s", insWord);
         int c = 0; //iterator and char tracker
-        for(int i = 0; i < strlen(insWord); i++)
+        for(unsigned int i = 0; i < strlen(insWord); i++)
         {
-            if(isalpha(insWord[i]))
+            if(isValidChar(insWord[i], insWord[i+1]))
             {
                 strippedWord[c] = insWord[i];
                 c++;
             }
+            else
+                break;
         }
         strippedWord[c] = '\0';
         popTree->insert(strippedWord);
@@ -54,28 +56,47 @@ void fileScanner::populateTree(searchTree* &popTree)
 
 void fileScanner::storeTree(Node* binaryTree)
 {
-    ofstream storageFile;
-    storageFile.open("dict.txt");
+    FILE *storageFile;
+    storageFile = fopen("dict.txt", "a");
 
 	if(binaryTree == NULL)
 		{
+			cout << "No Nodes";
 			return;
-			cout << "end";
 		}
 
 	storeTree(binaryTree->leftNode);
 
+    fputs(binaryTree->word, 'storageFile');
     storageFile << (binaryTree->word);
     cout << binaryTree->word << " ";
 //	cout << searchTree->word << endl;
 
 	storeTree(binaryTree->rightNode);
 
-	storageFile.close();
+	fclose(storageFile);
 }
 
 
-void fileScanner::checkshit()
+bool fileScanner::isValidChar(char c, char b)
 {
+    bool isValid = false;
 
+    switch(c)
+    {
+    case '-':
+            if(b != '-')
+                isValid = true;
+            break;
+    case '\'':
+            isValid = true;
+            break;
+    default:
+            if(isalpha(c))
+                isValid = true;
+                break;
+    }
+
+
+    return isValid;
 }

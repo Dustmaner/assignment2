@@ -19,7 +19,7 @@ int main()
 
     reader->storeTree(testSearch->getRoot());
 
-    cout << (testSearch->getRoot())->word;
+    cout << \n << (testSearch->getRoot())->word;
 
 	return 0;
 }

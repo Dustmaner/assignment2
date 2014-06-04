@@ -240,7 +240,7 @@ void searchTree::balanceFromRight(Node* &root)
 
 int searchTree::maxDepth(Node* checkNode)
 {
-	if(!checkNode)
+	if(checkNode == NULL)
     {
 			return 0;
     }
@@ -250,6 +250,10 @@ int searchTree::maxDepth(Node* checkNode)
 		int rightCount = maxDepth(checkNode->rightNode);
 
         return (leftCount > rightCount) ? leftCount + 1 : rightCount + 1;
+	}
+	else
+	{
+        return 0;
 	}
 }
 
