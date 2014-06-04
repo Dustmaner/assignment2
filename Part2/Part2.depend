@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1401348504 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<stdlib.h>
+	"fileScanner.h"
+
+1401290694 d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.h
+	<iostream>
+	<stdio.h>
+	<string>
+	"searchTree.h"
+
+1401348514 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\main.cpp
+	<iostream>
+	<string>
+	<string.h>
+	<cstdio>
+	<stdio.h>
+	"searchTree.h"
+	"fileScanner.h"
+
+1401200782 d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.h
+	<string>
+	<iostream>
+	<algorithm>
+	<stdio.h>
+	<string.h>
+
+1401253643 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.cpp
+	"searchTree.h"
+
+1401240718 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.cpp
+
