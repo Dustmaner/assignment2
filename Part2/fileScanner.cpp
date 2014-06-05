@@ -1,12 +1,10 @@
-
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <cstdio>
 #include <stdlib.h>
 
 #include "fileScanner.h"
-
-
 
 using namespace std;
 
@@ -36,7 +34,11 @@ void fileScanner::populateTree(searchTree* &popTree)
         int c = 0; //iterator and char tracker
         for(unsigned int i = 0; i < strlen(insWord); i++)
         {
-            if(isValidChar(insWord[i], insWord[i+1]))
+            if(insWord[i] == '-' && insWord[i+1] == '-')
+            {
+                i++;
+            }
+            else if(isValidChar(insWord[i], insWord[i+1]))
             {
                 strippedWord[c] = insWord[i];
                 c++;
@@ -53,30 +55,6 @@ void fileScanner::populateTree(searchTree* &popTree)
     popTree->report();
 
 }
-
-void fileScanner::storeTree(Node* binaryTree)
-{
-    FILE *storageFile;
-    storageFile = fopen("dict.txt", "a");
-
-	if(binaryTree == NULL)
-		{
-			cout << "No Nodes";
-			return;
-		}
-
-	storeTree(binaryTree->leftNode);
-
-    fputs(binaryTree->word, 'storageFile');
-    storageFile << (binaryTree->word);
-    cout << binaryTree->word << " ";
-//	cout << searchTree->word << endl;
-
-	storeTree(binaryTree->rightNode);
-
-	fclose(storageFile);
-}
-
 
 bool fileScanner::isValidChar(char c, char b)
 {
@@ -99,4 +77,25 @@ bool fileScanner::isValidChar(char c, char b)
 
 
     return isValid;
+}
+
+void fileScanner::storeTree(Node* binaryTree)
+{
+    FILE *storageFile = fopen("dict.txt", "a");
+
+    if(binaryTree == NULL)
+        return;
+
+    storeTree(binaryTree->leftNode);
+
+    char *c = new char[binaryTree->word.size() + 1];
+    c[binaryTree->word.size()] = 0;
+    memcpy(c, binaryTree->word.c_str(), binaryTree->word.size());
+
+    fputs(c, storageFile);
+    fputs("\n", storageFile);
+
+    storeTree(binaryTree->rightNode);
+
+	fclose(storageFile);
 }

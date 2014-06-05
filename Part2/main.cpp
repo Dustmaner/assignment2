@@ -6,8 +6,14 @@
 
 #include "searchTree.h"
 #include "fileScanner.h"
+#include "HashTable.h"
 
 using namespace std;
+
+int hashFunc(int num)
+{
+    return (num % 19);
+}
 
 int main()
 {
@@ -19,7 +25,20 @@ int main()
 
     reader->storeTree(testSearch->getRoot());
 
-    cout << \n << (testSearch->getRoot())->word;
+    HashTable<string> testHash(200);
+
+    int keyNum;
+    string newString;
+
+    cout << "Insert 16 nums and a string" << endl;
+    for(int i = 0; i < 16; i++)
+    {
+        cin >> keyNum;
+        int key = hashFunc(keyNum);
+        cout << "New String" << endl;
+        cin >> newString;
+        testHash.insert(key, newString);
+    }
 
 	return 0;
 }

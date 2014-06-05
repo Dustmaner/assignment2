@@ -9,12 +9,14 @@ using namespace std;
 
 class spellCheck
 {
-protected:
+private:
 
 public:
 
     spellcheck();
     ~spellCheck();
+
+    void
 };
 
 

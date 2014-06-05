@@ -25,7 +25,9 @@ protected:
 	Node* leftNode;
 	Node* rightNode;
 
-	void insertNode(Node* &rootPtr, Node* newNode, bool isTaller);
+	void insertNode(Node* &rootPtr, Node* newNode, bool &isTaller);
+
+    void deleteTree(Node* delNode);
 
 	string caseConvert(string word);
 
@@ -48,8 +50,6 @@ public:
 	void printTree(Node* searchTree);
 
 	Node* getRoot();
-
-	void deleteTree();
 
 	void report();
 

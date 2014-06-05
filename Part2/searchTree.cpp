@@ -10,7 +10,7 @@ searchTree::searchTree()
 
 searchTree::~searchTree()
 {
-	deleteTree();
+	deleteTree(root);
 }
 
 
@@ -31,7 +31,7 @@ void searchTree::insert(string insertWord)
 	insertNode(root, newNode, isTaller);
 }
 
-void searchTree::insertNode(Node* &root, Node* newNode, bool isTaller) //inserts a node into the tree
+void searchTree::insertNode(Node* &root, Node* newNode, bool &isTaller) //inserts a node into the tree
 {
 	if(root == NULL)
 	{
@@ -41,7 +41,7 @@ void searchTree::insertNode(Node* &root, Node* newNode, bool isTaller) //inserts
 		nodeCount++;
 		cout << "New word added: " << root->word << endl;
 	}
-	else if(root->word == newNode->word)
+	else if (root->word == newNode->word)
 	{
 //		cerr << "Sorry, \"" << newNode->word << "\" has already been added" << endl;
 	}
@@ -67,13 +67,11 @@ void searchTree::insertNode(Node* &root, Node* newNode, bool isTaller) //inserts
 				isTaller = false;
 			}//end switch
 	}//end if
-
-	else
+    else
 	{
 		insertNode(root->rightNode, newNode, isTaller);
 
 		if (isTaller)
-		{
 			switch (root->balanceFactor)
 			{
 			case -1:
@@ -90,7 +88,6 @@ void searchTree::insertNode(Node* &root, Node* newNode, bool isTaller) //inserts
 				balanceFromRight(root);
 				isTaller = false;
 			}
-		}
 	}
 }
 
@@ -112,16 +109,17 @@ void searchTree::rotateLeft(Node* &root)
 
 	if(root == NULL)
 	{
-		cerr << "Error in the tree" << endl;
+		cerr << "No root node" << endl;
 	}
 	else if (root->rightNode == NULL)
 	{
-		cerr << "Error in the tree: " << "No right subtree to rotate." << endl;
+		cerr << "Error in the tree: "
+		<< "No right subtree to rotate." << endl;
 	}
 	else
 	{
 		point = root->rightNode;
-		root->rightNode = root->leftNode; //left node of point becomes
+		root->rightNode = point->leftNode; //left node of point becomes
 											// the right node of root
 		point->leftNode = root;
 		root = point;		//make pointer the new root node
@@ -218,7 +216,6 @@ void searchTree::balanceFromRight(Node* &root)
 		case 1:
 			root->balanceFactor = -1;
 			p->balanceFactor = 0;
-			break;
 		}
 
 		w->balanceFactor = 0;
@@ -244,41 +241,45 @@ int searchTree::maxDepth(Node* checkNode)
     {
 			return 0;
     }
-	else if (checkNode != NULL)
-	{
-		int leftCount = maxDepth(checkNode->leftNode);
-		int rightCount = maxDepth(checkNode->rightNode);
-
-        return (leftCount > rightCount) ? leftCount + 1 : rightCount + 1;
-	}
-	else
-	{
-        return 0;
-	}
+    else
+    {
+        return 1 + max(maxDepth(checkNode->leftNode), maxDepth(checkNode->rightNode));
+    }
+//	else if (checkNode != NULL)
+//	{
+//		int leftCount = maxDepth(checkNode->leftNode);
+//		int rightCount = maxDepth(checkNode->rightNode);
+//
+//        return (leftCount > rightCount) ? leftCount + 1 : rightCount + 1;
+//	}
+//	else
+//	{
+//        return 0;
+//	}
 }
 
 void searchTree::printTree(Node* searchTree) //Prints words in alphabetical order
 {
-	if(searchTree == NULL)
-		{
-			return;
-		}
-
-	printTree(searchTree->leftNode);
-
-	cout << searchTree->word << endl;
-
-	printTree(searchTree->rightNode);
-
+	if(searchTree != NULL)
+    {
+        printTree(searchTree->leftNode);
+        cout << searchTree->word << endl;
+        printTree(searchTree->rightNode);
+    }
 }
-void searchTree::deleteTree()
+void searchTree::deleteTree(Node *delNode)
 {
-
+    if(delNode)
+    {
+        deleteTree(delNode->leftNode);
+        deleteTree(delNode->rightNode);
+        delete delNode;
+    }
 }
 
 void searchTree::report()
 {
-	cout << "\n*******Report******* " << endl;
+	cout << "\n\n*******Report******* " << endl;
 	cout << "There are " << nodeCount << " words in the dictionary" << endl;
 	cout << "The maximum depth of the tree is "<< maxDepth(this->getRoot())<< " nodes." << endl;
 }
