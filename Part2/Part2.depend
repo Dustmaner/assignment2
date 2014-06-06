@@ -34,27 +34,28 @@
 
 1401240718 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.cpp
 
-1401857300 source:/home/adam/uni/programming/assignment2/Part2/fileScanner.cpp
+1402021418 source:/home/adam/uni/programming/assignment2/Part2/fileScanner.cpp
 	<iostream>
 	<fstream>
 	<stdio.h>
+	<cstdio>
 	<stdlib.h>
 	"fileScanner.h"
 
-1401856449 /home/adam/uni/programming/assignment2/Part2/fileScanner.h
+1402021418 /home/adam/uni/programming/assignment2/Part2/fileScanner.h
 	<iostream>
 	<stdio.h>
 	<string>
 	"searchTree.h"
 
-1401853411 /home/adam/uni/programming/assignment2/Part2/searchTree.h
+1402021418 /home/adam/uni/programming/assignment2/Part2/searchTree.h
 	<string>
 	<iostream>
 	<algorithm>
 	<stdio.h>
 	<string.h>
 
-1401853411 source:/home/adam/uni/programming/assignment2/Part2/main.cpp
+1402021418 source:/home/adam/uni/programming/assignment2/Part2/main.cpp
 	<iostream>
 	<string>
 	<string.h>
@@ -62,11 +63,18 @@
 	<stdio.h>
 	"searchTree.h"
 	"fileScanner.h"
+	"HashTable.h"
 
-1401854181 source:/home/adam/uni/programming/assignment2/Part2/searchTree.cpp
+1402021418 source:/home/adam/uni/programming/assignment2/Part2/searchTree.cpp
 	"searchTree.h"
 
 1401853411 source:/home/adam/uni/programming/assignment2/Part2/spellCheck.cpp
 
 1401977669 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\hashtable.cpp
+
+1402021417 source:/home/adam/uni/programming/assignment2/Part2/HashTable.cpp
+
+1402021417 /home/adam/uni/programming/assignment2/Part2/HashTable.h
+	<iostream>
+	<cassert>
 
