@@ -91,3 +91,9 @@
 	<stdlib.h>
 	"HashTable.h"
 
+1402021417 source:/home/adam/uni/programming/assignment2/Part2/HashTable.cpp
+
+1402021417 /home/adam/uni/programming/assignment2/Part2/HashTable.h
+	<iostream>
+	<cassert>
+
