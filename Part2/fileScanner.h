@@ -16,6 +16,7 @@ class fileScanner
 private:
 	void openFile(string fileName);
 
+    void write(Node* treeNode, FILE* insertFile);
 //	void fileWriter(Node &binaryTree, FILE* insertFile);
 
 public:

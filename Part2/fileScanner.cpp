@@ -53,7 +53,7 @@ void fileScanner::populateTree(searchTree* &popTree)
     fclose(insertFile);
     cout << "\nThe tree has finished populating";
     popTree->report();
-//    storeTree(popTree->getRoot());
+    storeTree(popTree->getRoot());
 
 }
 
@@ -77,48 +77,30 @@ bool fileScanner::isValidChar(char c, char b)
                 break;
     }
 
-
     return isValid;
 }
 
 void fileScanner::storeTree(Node* binaryTree)
 {
-    if(binaryTree != NULL)
-    {
     FILE *storageFile = fopen("dict.txt", "a+");
-
-    storeTree(binaryTree->leftNode);
-
-    char *c = new char[binaryTree->word.size() + 1];
-    c[binaryTree->word.size()] = '\0';
-//    memcpy(c, binaryTree->word.c_str(), binaryTree->word.size());
-    strcpy(c, binaryTree->word.c_str());
-
-    fputs(c, storageFile);
-    fputs("\n", storageFile);
-
-    storeTree(binaryTree->rightNode);
-
+    write(binaryTree, storageFile);
 	fclose(storageFile);
-    }
+	cout << "\nDictionary stored in dict.txt" << endl;
 }
 
-
-void searchTree::inOrder(string& buffer)
+void fileScanner::write(Node* fileNode, FILE* insertFile)
 {
-    Node* node = this->getRoot();
-
-    inOrder(buffer, node->leftNode);
-    buffer += node->word + '\n';
-    inOrder(buffer, node->rightNode);
-}
-
-void searchTree::inOrder(string& buffer, Node* node)
-{
-    if (node == NULL)
+    if(!fileNode)
         return;
 
-    inOrder(buffer, node->leftNode);
-    buffer += node->word + '\n';
-    inOrder(buffer, node->rightNode);
+    write(fileNode->leftNode, insertFile);
+
+    char *c = new char[fileNode->word.size() + 1];
+    c[fileNode->word.size()] = '\0';
+    strcpy(c, fileNode->word.c_str());
+
+    fputs(c, insertFile);
+    fputs("\n", insertFile);
+
+    write(fileNode->rightNode, insertFile);
 }

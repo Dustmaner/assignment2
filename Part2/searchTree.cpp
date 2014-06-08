@@ -39,7 +39,7 @@ void searchTree::insertNode(Node* &root, Node* newNode, bool &isTaller) //insert
 		isTaller = true;
 
 		nodeCount++;
-		cout << "New word added: " << root->word << endl;
+//		cout << "New word added: " << root->word << endl;
 	}
 	else if (root->word == newNode->word)
 	{
