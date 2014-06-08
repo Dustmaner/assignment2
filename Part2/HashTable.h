@@ -4,8 +4,10 @@
 #define BUCKETCOUNT 42
 
 #include <iostream>
+#include <stdio.h>
 #include <cassert>
 #include <list>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,12 +19,17 @@ public:
 
     void insert(char* word);
 
-    char* suggestWord(char* word);
+    void findWord(char* word);
+
+
 
 private:
     list<char*> buckets[BUCKETCOUNT];
     int hash(char* word);
 
+    void deleteTable();
+
+    char* suggestWord(char* word);
 };
 
 #endif

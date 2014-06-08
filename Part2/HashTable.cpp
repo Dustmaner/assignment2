@@ -8,7 +8,6 @@ HashTable::HashTable()
     {
         list<char*> newList;
         buckets[i].assign(newList.begin(), newList.end());
-//         = list<char*> NewList;
     }
 }
 
@@ -23,18 +22,19 @@ HashTable::~HashTable()
 void HashTable::insert(char* word)
 {
     int bucket = hash(word);
+    printf("%s ...... %i", word, bucket);
+    cout << "\n";
     buckets[bucket].push_back(word);
 }
 
 int HashTable::hash(char* word)
 {
-    int value = 0;
     char* c = word;
-    unsigned int hashValue;
+    unsigned int hashValue = 0;
 
     for(int i = 0; i < 3 && *c != '\0' ; i++)
     {
-        value += (int)*c;
+        hashValue += (int)*c;
     }
 
     hashValue = hashValue % BUCKETCOUNT;
@@ -44,19 +44,18 @@ int HashTable::hash(char* word)
 
 char* HashTable::suggestWord(char* word)
 {
-//    int bucket = hash(word);
-//
-//    buckets[bucket]//search list for word, return suggestion if not found
-//
-//    for(int i = 0; i < buckets.size; i++)
-//    {
-//        for(int j = 0; j < buckets[i].size; j++)
-//        {
-//
-//        }
-//    }
 
        char* c = '\0';
 
        return c;             //loop lists, loop buckets
+}
+
+void HashTable::findWord(char* word)
+{
+    bool found = false;
+    int wordValue = hash(word);
+
+    list<char*>::iterator findIter = find(buckets->begin(), buckets->end(), word);
+
+    //// SEARCH FOR THE HASH YOU IDIOT
 }

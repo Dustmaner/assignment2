@@ -18,6 +18,7 @@ int main()
     cout << "-------Data Structures and Algorithms-------" << endl;
     cout << "----------Assignment Part 2----------" << endl;
     cout << "What part would you like to view? Insert a or b. Press f to quit" << endl;
+    cout << "**********WARNING IT IS RECOMMENDED THAT PART A BE RUN FIRST***********" << endl;
     cin >> start;
 
     if(start != 'f' && start != 'a' && start != 'b')
@@ -39,19 +40,20 @@ int main()
 
             start = 'p';
             cout << "What part would you like to view?"
-            << "Insert a or b. Press any other key to quit" << endl;
+            << "Insert a or b. Press f key to quit" << endl;
             cin >> start;
         }
         else if(start == 'b')
         {
-            HashTable* seachHash = new HashTable;
-            spellCheck* spellChecker = new spellCheck;
+            spellCheck* dictCheck = new spellCheck;
+
+            dictCheck->dictFromFile(dictCheck->getTable());
 
 
 
 
             start = 'p';
-            cout << "What part would you like to view? Insert a or b. Press any other key to quit" << endl;
+            cout << "What part would you like to view? Insert a or b. Press f key to quit" << endl;
             cin >> start;
         }
     }

@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 
 #include "HashTable.h"
@@ -12,17 +13,19 @@ using namespace std;
 class spellCheck
 {
 private:
-    HashTable spellTable();
+    HashTable dictionary;
 
 public:
 
     spellCheck();
     ~spellCheck();
 
-    void dictFromFile(string fileName);
-    void checkWord(char* word);
+    void dictFromFile(HashTable &dictionary);
+    void checkWord(const char* word);
 
     void spellCheckFile(string filename);
+
+    HashTable& getTable();
 
 };
 

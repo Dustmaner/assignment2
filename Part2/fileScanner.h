@@ -8,6 +8,7 @@
 #include <string>
 
 #include "searchTree.h"
+#include "spellCheck.h"
 
 using namespace std;
 
@@ -29,7 +30,6 @@ public:
 	void storeTree(Node* binaryTree);
 
 	bool isValidChar(char c, char b);
-
 
 };
 

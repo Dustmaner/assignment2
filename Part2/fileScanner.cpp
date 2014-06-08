@@ -82,7 +82,7 @@ bool fileScanner::isValidChar(char c, char b)
 
 void fileScanner::storeTree(Node* binaryTree)
 {
-    FILE *storageFile = fopen("dict.txt", "a+");
+    FILE *storageFile = fopen("dict.txt", "w");
     write(binaryTree, storageFile);
 	fclose(storageFile);
 	cout << "\nDictionary stored in dict.txt" << endl;
