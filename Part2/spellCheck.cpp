@@ -25,7 +25,7 @@ void spellCheck::dictFromFile(HashTable &dictionary)
     {
         while(myFile.good())
         {
-        getline(myFile, inWord);
+            getline(myFile, inWord);
             strcpy(word, inWord.c_str());
             strcat(word, "\0");
             dictionary.insert(word);
@@ -33,9 +33,9 @@ void spellCheck::dictFromFile(HashTable &dictionary)
     }
     myFile.close();
 }
-void checkWord(char* word)
+void spellCheck::checkWord(char* word, HashTable &dictionary)
 {
-
+      dictionary.findWord(word);
 }
 
 void spellCheckFile(string filename)

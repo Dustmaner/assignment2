@@ -21,7 +21,7 @@ public:
     ~spellCheck();
 
     void dictFromFile(HashTable &dictionary);
-    void checkWord(const char* word);
+    void checkWord(char* word, HashTable& dictionary);
 
     void spellCheckFile(string filename);
 

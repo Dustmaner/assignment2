@@ -49,7 +49,7 @@ int main()
 
             dictCheck->dictFromFile(dictCheck->getTable());
 
-
+            reader->storeSpell(dictCheck->getTable());
 
 
             start = 'p';

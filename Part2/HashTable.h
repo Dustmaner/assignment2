@@ -29,7 +29,7 @@ private:
 
     void deleteTable();
 
-    char* suggestWord(char* word);
+    void suggestWord(char* word, int hashValue, int bucket);
 };
 
 #endif

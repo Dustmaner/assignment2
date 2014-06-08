@@ -31,6 +31,8 @@ public:
 
 	bool isValidChar(char c, char b);
 
+    void storeSpell(HashTable dictionary);
+
 };
 
 #endif // FILESCANNER_H

@@ -42,20 +42,41 @@ int HashTable::hash(char* word)
     return hashValue;
 }
 
-char* HashTable::suggestWord(char* word)
+void HashTable::suggestWord(char* word, int hashValue, int bucket)
 {
+        cout << "Word was not found: " << word << endl;
+        cout << "try these instead: "<< endl;
 
-       char* c = '\0';
-
-       return c;             //loop lists, loop buckets
+        list<char*>::const_iterator i;
+        for(i = buckets[bucket].begin(); i != buckets[bucket].end(); i++)
+        {
+            cout << *i << endl;
+        }
+     //loop lists, loop buckets
 }
 
 void HashTable::findWord(char* word)
 {
-    bool found = false;
+    bool found;
     int wordValue = hash(word);
+    int i;
+    int bucket = 0;
 
-    list<char*>::iterator findIter = find(buckets->begin(), buckets->end(), word);
+    for(i = 0; i < BUCKETCOUNT; i++)
+    {
+        list<char*>::iterator findIter = find(buckets[i].begin(), buckets[i].end(), word);
+        if(findIter == buckets[i].end())
+        {
+            found = false;
+            bucket = i;
+        }
+
+    }
+
+    if(found == false)
+         suggestWord(word, wordValue, i);
+
+
 
     //// SEARCH FOR THE HASH YOU IDIOT
 }

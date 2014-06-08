@@ -104,3 +104,16 @@ void fileScanner::write(Node* fileNode, FILE* insertFile)
 
     write(fileNode->rightNode, insertFile);
 }
+
+void fileScanner::storeSpell(HashTable dictionary)
+{
+    ifstream inputFile("Eisenhowerspell.txt");
+
+    while(inputFile.good())
+    {
+        char cstr [20];
+        inputFile.get(cstr, 20);
+    cout << "ceh";
+        dictionary.findWord(cstr);
+    }
+}
