@@ -1,22 +1,29 @@
-#pragma once
-
 #ifndef SPELLCHECK_H
 #define SPELLCHECK_H
 
 #include <string.h>
+#include <iostream>
+#include <stdlib.h>
+
+#include "HashTable.h"
 
 using namespace std;
 
 class spellCheck
 {
 private:
+    HashTable spellTable();
 
 public:
 
-    spellcheck();
+    spellCheck();
     ~spellCheck();
 
-    void
+    void dictFromFile(string fileName);
+    void checkWord(char* word);
+
+    void spellCheckFile(string filename);
+
 };
 
 
