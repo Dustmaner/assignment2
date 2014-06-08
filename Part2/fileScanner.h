@@ -28,6 +28,8 @@ public:
 	void storeTree(Node* binaryTree);
 
 	bool isValidChar(char c, char b);
+
+
 };
 
 #endif // FILESCANNER_H

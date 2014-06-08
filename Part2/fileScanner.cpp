@@ -34,7 +34,7 @@ void fileScanner::populateTree(searchTree* &popTree)
         int c = 0; //iterator and char tracker
         for(unsigned int i = 0; i < strlen(insWord); i++)
         {
-            if(insWord[i] == '-' && insWord[i+1] == '-')
+            if(insWord[i] == '-' && insWord[i + 1] == '-')
             {
                 i++;
             }
@@ -53,6 +53,7 @@ void fileScanner::populateTree(searchTree* &popTree)
     fclose(insertFile);
     cout << "\nThe tree has finished populating";
     popTree->report();
+//    storeTree(popTree->getRoot());
 
 }
 
@@ -67,7 +68,8 @@ bool fileScanner::isValidChar(char c, char b)
                 isValid = true;
             break;
     case '\'':
-            isValid = true;
+            if(b != ' ')
+                isValid = true;
             break;
     default:
             if(isalpha(c))
@@ -81,16 +83,16 @@ bool fileScanner::isValidChar(char c, char b)
 
 void fileScanner::storeTree(Node* binaryTree)
 {
-    FILE *storageFile = fopen("dict.txt", "a");
-
-    if(binaryTree == NULL)
-        return;
+    if(binaryTree != NULL)
+    {
+    FILE *storageFile = fopen("dict.txt", "a+");
 
     storeTree(binaryTree->leftNode);
 
     char *c = new char[binaryTree->word.size() + 1];
-    c[binaryTree->word.size()] = 0;
-    memcpy(c, binaryTree->word.c_str(), binaryTree->word.size());
+    c[binaryTree->word.size()] = '\0';
+//    memcpy(c, binaryTree->word.c_str(), binaryTree->word.size());
+    strcpy(c, binaryTree->word.c_str());
 
     fputs(c, storageFile);
     fputs("\n", storageFile);
@@ -98,4 +100,25 @@ void fileScanner::storeTree(Node* binaryTree)
     storeTree(binaryTree->rightNode);
 
 	fclose(storageFile);
+    }
+}
+
+
+void searchTree::inOrder(string& buffer)
+{
+    Node* node = this->getRoot();
+
+    inOrder(buffer, node->leftNode);
+    buffer += node->word + '\n';
+    inOrder(buffer, node->rightNode);
+}
+
+void searchTree::inOrder(string& buffer, Node* node)
+{
+    if (node == NULL)
+        return;
+
+    inOrder(buffer, node->leftNode);
+    buffer += node->word + '\n';
+    inOrder(buffer, node->rightNode);
 }

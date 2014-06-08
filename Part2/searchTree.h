@@ -29,6 +29,9 @@ protected:
 
     void deleteTree(Node* delNode);
 
+    void inOrder(string& buffer);
+    void inOrder(string&, Node* node);
+
 	string caseConvert(string word);
 
 	void rotateLeft(Node* &root);

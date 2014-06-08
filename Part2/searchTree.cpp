@@ -245,17 +245,6 @@ int searchTree::maxDepth(Node* checkNode)
     {
         return 1 + max(maxDepth(checkNode->leftNode), maxDepth(checkNode->rightNode));
     }
-//	else if (checkNode != NULL)
-//	{
-//		int leftCount = maxDepth(checkNode->leftNode);
-//		int rightCount = maxDepth(checkNode->rightNode);
-//
-//        return (leftCount > rightCount) ? leftCount + 1 : rightCount + 1;
-//	}
-//	else
-//	{
-//        return 0;
-//	}
 }
 
 void searchTree::printTree(Node* searchTree) //Prints words in alphabetical order
@@ -302,3 +291,22 @@ void searchTree::findWord(string word)
     while
     (currNode != NULL);
 }
+//
+//void searchTree::inOrder(string& buffer)
+//{
+//    Node* node = this->getRoot();
+//
+//    inOrder(buffer, node->leftNode);
+//    buffer += node->word + '\n';
+//    inOrder(buffer, node->rightNode);
+//}
+//
+//void searchTree::inOrder(string& buffer, Node* node)
+//{
+//    if (node == NULL)
+//        return;
+//
+//    inOrder(buffer, node->leftNode);
+//    buffer += node->word + '\n';
+//    inOrder(buffer, node->rightNode);
+//}

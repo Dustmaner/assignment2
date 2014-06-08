@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1402046458 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.cpp
+1402210179 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.cpp
 	<iostream>
 	<fstream>
 	<stdio.h>
@@ -7,13 +7,13 @@
 	<stdlib.h>
 	"fileScanner.h"
 
-1402046458 d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.h
+1402202280 d:\uni\development\c++\assignment2\assignment2\part2\part2\filescanner.h
 	<iostream>
 	<stdio.h>
 	<string>
 	"searchTree.h"
 
-1402063419 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\main.cpp
+1402203909 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\main.cpp
 	<iostream>
 	<string>
 	<string.h>
@@ -22,17 +22,18 @@
 	"searchTree.h"
 	"fileScanner.h"
 
-1402046458 d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.h
+1402201554 d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.h
 	<string>
 	<iostream>
 	<algorithm>
 	<stdio.h>
 	<string.h>
 
-1402046458 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.cpp
+1402202450 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\searchtree.cpp
 	"searchTree.h"
 
-1402046458 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.cpp
+1402201975 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.cpp
+	"spellCheck.h"
 
 1402021418 source:/home/adam/uni/programming/assignment2/Part2/fileScanner.cpp
 	<iostream>
@@ -70,7 +71,8 @@
 
 1401853411 source:/home/adam/uni/programming/assignment2/Part2/spellCheck.cpp
 
-1402063408 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\hashtable.cpp
+1402198590 source:d:\uni\development\c++\assignment2\assignment2\part2\part2\hashtable.cpp
+	"HashTable.h"
 
 1402021417 source:/home/adam/uni/programming/assignment2/Part2/HashTable.cpp
 
@@ -78,9 +80,12 @@
 	<iostream>
 	<cassert>
 
-1402063403 d:\uni\development\c++\assignment2\assignment2\part2\part2\hashtable.h
+1402195125 d:\uni\development\c++\assignment2\assignment2\part2\part2\hashtable.h
+	<iostream>
+	<cassert>
+	<list>
 
-1402062645 d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.h
+1402197098 d:\uni\development\c++\assignment2\assignment2\part2\part2\spellcheck.h
 	<string.h>
 	<iostream>
 	<stdlib.h>
