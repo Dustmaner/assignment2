@@ -123,7 +123,7 @@ Type linkedListType<Type>::front()
 }
 
 template<class Type>
-Type linkedListType<Type>::back();
+Type linkedListType<Type>::back()
 {
     assert(last != NULL);
     return last->info;
